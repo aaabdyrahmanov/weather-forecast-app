@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const { json, urlencoded } = require('body-parser')
+const mongoose = require('mongoose')
 
 const indexRouter = require('../routes/index')
 
@@ -9,12 +10,19 @@ const app = express()
 
 const port = process.env.PORT || 1234
 
+const mongoURI = 'mongodb://localhost:27017'
+
 app.use(morgan('dev'))
 app.use(json())
 app.use(urlencoded({ extended: false }))
 app.use(cors())
 
 app.use('/api/v1', indexRouter)
+
+mongoose
+  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err))
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
 
