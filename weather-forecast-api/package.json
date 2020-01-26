@@ -1,0 +1,28 @@
+{
+  "name": "weather-forecast-api",
+  "version": "1.1.0",
+  "description": "weather forecast project API",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js"
+  },
+  "author": "atamyratabdy",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "prettier": "^1.19.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.9",
+    "morgan": "^1.9.1",
+    "validator": "^12.2.0"
+  }
+}
