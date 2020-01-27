@@ -5,6 +5,8 @@ const { json, urlencoded } = require('body-parser')
 const mongoose = require('mongoose')
 
 const indexRouter = require('../routes/index')
+const cityRouter = require('../routes/city.route')
+const userRouter = require('../routes/user.route')
 
 const app = express()
 
@@ -18,6 +20,8 @@ app.use(urlencoded({ extended: false }))
 app.use(cors())
 
 app.use('/api/v1', indexRouter)
+app.use('/api/v1', cityRouter)
+app.use('/api/v1', userRouter)
 
 mongoose
   .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
