@@ -4,7 +4,7 @@ const UserRouter = require('../controllers/user.controller')
 const UserModel = require('../models/user.model')
 
 router.post('/users/user', async ({ body }, res, next) => {
-  const NewUser = UserRouter(body)
+  const NewUser = await UserRouter(body)
   NewUser.save()
     .then(item =>
       res.status(200).send({

@@ -4,7 +4,7 @@ const CityRouter = require('../controllers/city.controller')
 const CityModel = require('../models/cities.model')
 
 router.post('/cities/city', async ({ body }, res, next) => {
-  const newCity = CityRouter(body)
+  const newCity = await CityRouter(body)
   newCity
     .save()
     .then(item =>

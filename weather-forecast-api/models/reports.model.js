@@ -1,14 +1,24 @@
 var mongoose = require('mongoose')
 
 const ReportSchema = new mongoose.Schema({
-  id: {
-    type: mongoose.SchemaTypes.ObjectId,
-    ref: 'user'
+  userId: {
+    type: String,
+    required: true
   },
   date: {
-    type: Date
+    type: Date,
+    default: Date.now
   },
-  location_id: {
+  locationId: {
+    type: String
+  },
+  userIp: {
+    type: String
+  },
+  result: {
+    type: String
+  },
+  duration: {
     type: String
   },
   status: {
@@ -16,12 +26,7 @@ const ReportSchema = new mongoose.Schema({
     required: true,
     enum: ['success', 'fail'],
     default: 'success'
-  },
-  duration: {
-    type: String
   }
 })
 
-ReportSchema.index({ user: 1, name: 1 }, { unique: true })
-
-module.exports = mongoose.model('report', ReportSchema)
+module.exports = mongoose.model('reports', ReportSchema)
