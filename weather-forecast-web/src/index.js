@@ -1,9 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-const rootElement = document.getElementById("root");
+import { Provider } from 'react-redux'
+
+import store from './redux/store'
+
+import App from './App'
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'font-awesome/css/font-awesome.min.css'
+
+const rootElement = document.getElementById('root')
+
 ReactDOM.render(
-    <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   rootElement
-);
+)

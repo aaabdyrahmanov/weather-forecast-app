@@ -1,11 +1,115 @@
 * {
-  box-sizing: border-box;
-  color: #333;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  text-align: center;
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 100%;
+  width: 100%;
+  background-color: #e1dfdf;
+  background-position: center;
+  background-size: auto;
+  position: absolute;
 }
 
+button:focus {
+  outline: 0 !important;
+}
+
+.nav-itemm:nth-of-type(1) {
+  display: flex;
+  justify-content: flex-start;
+  background-color: grey;
+}
+.nav-itemm:nth-of-type(2) {
+  display: flex;
+  background-color: lightblue;
+  justify-content: flex-end;
+}
+.nav-itemm li {
+  margin-right: 14px;
+  padding-left: 20px;
+}
+
+ul > li {
+  list-style: none;
+}
+.form-boxx {
+  width: 380px;
+  height: 450px;
+  position: relative;
+  margin: 4% auto;
+  background: #fff;
+  padding: 5px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+.button-boxx {
+  width: 220px;
+  margin: 35px auto;
+  position: relative;
+  box-shadow: 0 0 20px 9px #b0e0e6;
+  border-radius: 30px;
+}
+.toggle-btnn {
+  padding: 10px 28px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+}
+.btnn {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 110px;
+  height: 100%;
+  background: linear-gradient(to right, #f8f9fa, #b0c4de);
+  border-radius: 30px;
+  transition: 0.5s;
+}
+.input-groupp {
+  top: 140px;
+  position: absolute;
+  width: 280px;
+  transition: 0.5s;
+}
+
+.input-fieldd {
+  width: 100%;
+  padding: 10px 0;
+  margin: 10px 0;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+}
+.submit-btnn {
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: linear-gradient(to right, #f8f9fa, #b0c4de);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+}
+.sign-inn {
+  left: 50px;
+}
+.sign-upp {
+  left: 450px;
+}
+
+.menu-buttonn {
+  width: 120px;
+  height: 50px;
+  padding: 30px;
+  margin: auto;
+  margin-top: 20px;
+  display: block;
+}

@@ -1,39 +1,36 @@
 const express = require('express')
 const router = express.Router()
-const UserRouter = require('../controllers/user.controller')
-const UserModel = require('../models/user.model')
+const jwt = require('jsonwebtoken')
+const User = require('../models/user.model')
 
-router.post('/users/user', async ({ body }, res, next) => {
-  const NewUser = await UserRouter(body)
-  NewUser.save()
-    .then(item =>
-      res.status(200).send({
-        status: 'Success',
-        data: item
-      })
-    )
-    .catch(err => {
-      next()
-      return res.status(401).send({
-        status: 'Failed',
-        error: err.message
-      })
+process.env.SECRET_KEY = 'secret'
+
+router.post('/users/login', (req, res) => {
+  User.findOne({
+    email: req.body.email
+  })
+    .then(user => {
+      if (user) {
+        if (req.body.password == user.password) {
+          const payload = {
+            first_name: user.first_name,
+            last_name: user.last_name
+          }
+          let token = jwt.sign(payload, process.env.SECRET_KEY, {
+            expiresIn: 1440
+          })
+          res.status(200).send(token)
+        } else {
+          res.status(401).json({ error: 'Password is not correct' })
+          res.end()
+        }
+      } else {
+        res.status(404).json({ error: 'User does not exist' })
+      }
     })
-})
-
-router.get('/users', async (req, res, next) => {
-  const users = await UserModel.find({})
-  res.send(users)
-})
-
-router.put('/users/userId', async (req, res, next) => {
-  const users = await UserModel.findOneAndUpdate({})
-  res.send(users)
-})
-
-router.delete('/users/userId', async (req, res, next) => {
-  const users = await UserModel.findOneAndRemove({})
-  res.send(users)
+    .catch(err => {
+      res.send('error: ' + err)
+    })
 })
 
 module.exports = router

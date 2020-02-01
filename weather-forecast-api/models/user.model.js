@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 const UserSchema = new mongoose.Schema({
   first_name: {
@@ -20,5 +21,9 @@ const UserSchema = new mongoose.Schema({
     default: Date.now
   }
 })
+
+UserSchema.plugin(AutoIncrement, { inc_field: 'user_id' })
+
+  
 
 module.exports = mongoose.model('user', UserSchema)

@@ -1,18 +1,17 @@
-var mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 const ReportSchema = new mongoose.Schema({
-  userId: {
-    type: String,
-    required: true
+  user_id: {
+    type: String
   },
   date: {
     type: Date,
     default: Date.now
   },
-  locationId: {
+  location_id: {
     type: String
   },
-  userIp: {
+  user_ip: {
     type: String
   },
   result: {
