@@ -24,9 +24,6 @@ const login = async user => {
       localStorage.setItem('usertoken', response.data)
       return response.data
     })
-    .catch(err => {
-      alert('The username/password is invalid. Please try again')
-    })
 }
 
 export { register, login }

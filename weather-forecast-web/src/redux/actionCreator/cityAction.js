@@ -42,11 +42,16 @@ const getCities = () => async dispatch => {
 const postNewCity = city => async dispatch => {
   try {
     const result = await dispatch(postCity(city))
-    return await apiClient.post('/cities/new', {
+    const res = await apiClient.post('/cities/new', {
       name: result.payload
     })
+    if (res.Error) {
+      console.log(res)
+      console.log('Email adress is already in use')
+    }
+    return
   } catch (error) {
-    console.log('Error:' + error)
+    alert('Error:' + error)
   }
 }
 

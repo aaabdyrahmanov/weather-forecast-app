@@ -1,4 +1,4 @@
-import { apiClient, ipapiClient } from '../../services/WeatherServices'
+import { apiClient } from '../../services/WeatherServices'
 
 const reportRequest = reports => {
   const result = {
@@ -26,9 +26,6 @@ const postNewReport = () => async dispatch => {
 
 const getReports = () => async dispatch => {
   try {
-    const res = await ipapiClient.get()
-    const { ip, city, country_code } = res.data
-    console.log(ip, city, country_code)
     const result = await apiClient.get('/reports')
     dispatch(reportRequest(result))
   } catch (error) {

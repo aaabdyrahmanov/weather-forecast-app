@@ -12,7 +12,6 @@ import {
 
 const EditCity = props => {
   const [updateCity, setUpdateCity] = useState()
-  const [render, setRender] = useState()
   const [deleteCity, setDeleteCity] = useState('')
 
   const cities = useSelector(state => state.cityReducer.cities)
@@ -25,7 +24,8 @@ const EditCity = props => {
   const onSubmit = event => {
     event.preventDefault()
     dispatch(updateXCity({ id: pathname, name: updateCity }))
-    setRender(true)
+    alert(`City with id ${pathname} was succesfully updated`)
+    history.push('/card/city')
   }
 
   if (!updateCity && cities) {
@@ -47,8 +47,7 @@ const EditCity = props => {
           history.push('/card/city')
         }
       }
-      setRender(false)
-    }, [render, deleteCity, pathname])
+    }, [deleteCity, pathname])
 
     return (
       <div className="container text-center pt-4 pb-5">

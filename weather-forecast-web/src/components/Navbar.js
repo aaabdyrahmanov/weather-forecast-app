@@ -5,7 +5,7 @@ import { Link, useHistory, withRouter } from 'react-router-dom'
 const Navbar = () => {
   const history = useHistory()
 
-  const logOut = async () => {
+  const logOut = () => {
     localStorage.removeItem('usertoken')
     history.push('/')
   }

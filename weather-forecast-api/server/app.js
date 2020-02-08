@@ -29,7 +29,7 @@ app.use('/api/v1/', usersRouter)
 
 mongoose
   .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB Connected'))
+  .then(res => console.log('MongoDB Connected'))
   .catch(err => console.log(err))
 
 app.listen(port, () => console.log(`Listening on port ${port}`))

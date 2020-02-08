@@ -18,7 +18,7 @@ const Report = () => {
     }, [])
 
     return (
-      <div>
+      <div className="container  mt-5">
         <div className="container pb-4">
           <table className="table table-bordered">
             <thead>

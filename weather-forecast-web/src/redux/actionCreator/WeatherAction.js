@@ -1,4 +1,8 @@
-import { apiWeather, apiCityCode } from '../../services/WeatherServices'
+import {
+  apiWeather,
+  apiCityCode,
+  ipapiClient
+} from '../../services/WeatherServices'
 
 const cityWeather = city => {
   const result = {
@@ -17,7 +21,6 @@ const getCityWeather = city => async dispatch => {
         maxResults: 1
       }
     })
-    console.log(res)
     const lat = await res.data.results[0].locations[0].latLng.lat
     const lng = await res.data.results[0].locations[0].latLng.lng
     const started = new Date()
@@ -34,8 +37,22 @@ const getCityWeather = city => async dispatch => {
       console.log(x)
     }
     const finished = new Date()
-
-    console.log(result, finished - started)
+    var status
+    console.log(result)
+    if (result.status === 200) {
+      status = 'Success'
+    } else {
+      status = 'Failure'
+    }
+    const ress = await ipapiClient.get()
+    if (ress) {
+      const { ip, city, country_code } = ress.data
+      console.log('ip: ', ip, city, country_code)
+    }
+    console.log(status)
+    console.log(' finished + ', finished - started, ' ---- milliseconds')
+    console.log(started)
+    console.log(finished)
     dispatch(cityWeather(result))
   } catch (error) {
     console.log('Error: ' + error)

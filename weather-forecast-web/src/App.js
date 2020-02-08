@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
@@ -15,29 +15,27 @@ import Weather from './components/cards/Weather'
 import EditCity from './components/cards/EditCity'
 import EditUser from './components/cards/EditUser'
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          <Navbar />
+const App = () => {
+  return (
+    <Router>
+      <div className="App">
+        <Navbar />
 
-          <Route exact path="/" component={Menu} />
-          <Route exact path="/dashboard" component={Menu} />
-          <Route exact path="/register" component={SignUp} />
-          <Route exact path="/login" component={SignIn} />
-          <Route exact path="/card/city" component={City} />
-          <Route exact path="/card/weather" component={Weather} />
-          <Route exact path="/card/reports" component={Reports} />
-          <Route exact path="/card/users" component={Users} />
-          <Route exact path="/card/city/edit/:id" component={EditCity} />
-          <Route exact path="/card/user/edit/:id" component={EditUser} />
+        <Route exact path="/" component={Menu} />
+        <Route exact path="/dashboard" component={Menu} />
+        <Route exact path="/register" component={SignUp} />
+        <Route exact path="/login" component={SignIn} />
+        <Route exact path="/card/city" component={City} />
+        <Route exact path="/card/weather" component={Weather} />
+        <Route exact path="/card/reports" component={Reports} />
+        <Route exact path="/card/users" component={Users} />
+        <Route exact path="/card/city/edit/:id" component={EditCity} />
+        <Route exact path="/card/user/edit/:id" component={EditUser} />
 
-          <Footer />
-        </div>
-      </Router>
-    )
-  }
+        <Footer />
+      </div>
+    </Router>
+  )
 }
 
 export default App
