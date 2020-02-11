@@ -40,7 +40,13 @@ const Report = () => {
                     <th scope="row">{index + 1}</th>
                     <td>{report.user_id}</td>
                     <td>{report.status}</td>
-                    <td>{report.date}</td>
+
+                    <td>
+                      {report.date
+                        ? String(new Date(report.date))
+                        : 'Not specified'}
+                    </td>
+
                     <td>{report.location_id}</td>
                     <td>{report.user_ip}</td>
                     <td>{report.duration}</td>

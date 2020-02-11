@@ -52,11 +52,11 @@ const Users = () => {
       setRender(false)
     }, [render, deleteUser])
     return (
-      <div className="container text-center pt-4 pb-5">
+      <div className="container text-center">
         <h1>Add New User</h1>
         <form method="POST" className="mx-auto" onSubmit={onSubmit}>
-          <ul className="list-group mx-auto list-group-horizontal">
-            <li className="list-group-item">
+          <ul>
+            <li>
               <label>First Name:</label>
               <input
                 type="text"
@@ -65,7 +65,7 @@ const Users = () => {
                 required
               />
             </li>
-            <li className="list-group-item">
+            <li>
               <label>Last Name:</label>
               <input
                 type="text"
@@ -74,7 +74,7 @@ const Users = () => {
                 required
               />
             </li>
-            <li className="list-group-item">
+            <li>
               <label> Email:</label>
               <input
                 type="email"
@@ -83,7 +83,7 @@ const Users = () => {
                 required
               />
             </li>
-            <li className="list-group-item">
+            <li>
               <label>Password:</label>
               <input
                 type="password"
@@ -92,7 +92,7 @@ const Users = () => {
                 required
               />
             </li>
-            <li className="list-group-item">
+            <li>
               <button type="submit" class="btn btn-secondary">
                 Add User
               </button>
@@ -103,7 +103,7 @@ const Users = () => {
         <div className="container">
           <h1 style={{ textAlign: 'center', padding: '20px' }}>User List</h1>
           <table className="table table-bordered">
-            <thead>
+            <thead class="thead-dark">
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">Name</th>

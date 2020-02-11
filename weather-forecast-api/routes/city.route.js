@@ -3,7 +3,7 @@ const router = express.Router()
 const CityRouter = require('../controllers/city.controller')
 const CityModel = require('../models/cities.model')
 
-router.get('/cities', async (req, res, next) => {
+router.get('/cities', async (req, res) => {
   const cities = await CityModel.find({})
   res.status(200).json(cities)
 })

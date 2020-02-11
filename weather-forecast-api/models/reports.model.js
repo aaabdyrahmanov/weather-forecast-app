@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 
 const ReportSchema = new mongoose.Schema({
-  user_id: {
+  user: {
     type: String
   },
   date: {
     type: Date,
-    default: Date.now
+    default: new Date()
   },
-  location_id: {
+  location: {
     type: String
   },
   user_ip: {

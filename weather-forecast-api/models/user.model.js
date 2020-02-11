@@ -24,6 +24,4 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.plugin(AutoIncrement, { inc_field: 'user_id' })
 
-  
-
 module.exports = mongoose.model('user', UserSchema)
