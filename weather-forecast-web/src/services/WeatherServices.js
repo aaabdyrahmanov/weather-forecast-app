@@ -12,21 +12,12 @@ const apiClient = axios.create({
 const proxy = 'https://cors-anywhere.herokuapp.com/'
 
 const apiWeather = axios.create({
-  baseURL: `${proxy}https://api.darksky.net/forecast/46b2ba7ea87133b337e1388c1acb173a/`,
+  baseURL: `http://api.openweathermap.org/data/2.5`,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json'
   },
   mode: 'cors'
-})
-
-const apiCityCode = axios.create({
-  baseURL: `http://www.mapquestapi.com/geocoding/v1/address`,
-  withCredentials: false,
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
 })
 
 const ipapiClient = axios.create({
@@ -37,4 +28,4 @@ const ipapiClient = axios.create({
   }
 })
 
-export { apiClient, apiWeather, apiCityCode, ipapiClient }
+export { apiClient, apiWeather, ipapiClient }

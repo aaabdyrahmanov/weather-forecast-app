@@ -50,13 +50,13 @@ const Weather = () => {
         </form>
         {weatherNow ? (
           <div style={{ textAlign: 'center', paddingTop: '70px' }}>
-            <h1 className="display-6">TimeZone: {weatherNow.timezone}</h1>
             <h1 className="display-6">
-              Summary: {weatherNow.currently.summary}
+              {weatherNow.weather[0].description.toUpperCase()}
             </h1>
-            <h2 className="display-6">
-              Temperature: {parseInt(weatherNow.currently.temperature)}
-            </h2>
+            <h1 className="display-6">
+              Temperature: {parseInt(weatherNow.main.temp - 273.15)}&#8451;
+            </h1>
+            <h2 className="display-6"></h2>
           </div>
         ) : (
           ''

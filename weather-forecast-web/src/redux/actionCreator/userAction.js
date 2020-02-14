@@ -66,7 +66,7 @@ const deleteXUser = user => async dispatch => {
 
 const updateXUser = user => async dispatch => {
   try {
-    const result = await dispatch(updateUser(city))
+    const result = await dispatch(updateUser(user))
     console.log(result.payload)
     return await apiClient.put(`/users/${result.payload.id}`, {
       name: result.payload.name

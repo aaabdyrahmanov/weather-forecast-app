@@ -1,41 +1,27 @@
-import {
-  apiWeather,
-  apiCityCode,
-  ipapiClient
-} from '../../services/WeatherServices'
+import { apiWeather, ipapiClient } from '../../services/WeatherServices'
 
 const cityWeather = city => {
   const result = {
     type: 'MENUS_WEATHER_INFO',
     payload: city.data
   }
+  console.log('ACTION RESULT', result)
   return result
 }
 
 const getCityWeather = city => async dispatch => {
   try {
-    const res = await apiCityCode.get('/', {
+    const result = await apiWeather.get(`/weather`, {
       params: {
-        key: 'CVXTCVO6k845LZWTAnZ8zNaGRdl9SADK',
-        location: city,
-        maxResults: 1
+        q: city,
+        APPID: '2248b2ff3f3a4348db31ddcdff245f02'
       }
     })
-    const lat = await res.data.results[0].locations[0].latLng.lat
-    const lng = await res.data.results[0].locations[0].latLng.lng
-    const started = new Date()
-    const result = await apiWeather.get(`/${lat},${lng}`, {
-      params: {
-        units: 'ca',
-        exclude: 'minutely,hourly,daily',
-        lang: 'en'
-      }
-    })
-
     if (!result) {
       const x = 'Fail'
       console.log(x)
     }
+    console.log('RESULT', result)
     const finished = new Date()
     var status
     console.log(result)
@@ -44,6 +30,7 @@ const getCityWeather = city => async dispatch => {
     } else {
       status = 'Failure'
     }
+    dispatch(cityWeather(result))
     const ress = await ipapiClient.get()
     if (ress) {
       const { ip, city, country_code } = ress.data
@@ -53,7 +40,6 @@ const getCityWeather = city => async dispatch => {
     console.log(' finished + ', finished - started, ' ---- milliseconds')
     console.log(started)
     console.log(finished)
-    dispatch(cityWeather(result))
   } catch (error) {
     console.log('Error: ' + error)
   }

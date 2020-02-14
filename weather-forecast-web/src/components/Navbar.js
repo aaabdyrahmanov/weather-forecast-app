@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const logOut = () => {
     localStorage.removeItem('usertoken')
-    history.push('/')
+    history.push('/login')
   }
 
   const loginRegLink = () => {

@@ -42,7 +42,7 @@ const City = () => {
       <div className="container text-center pt-4 pb-5">
         <h1>Add a City</h1>
         <form className="form-inline" method="POST" onSubmit={onSubmit}>
-          <div className="form-group center  mx-auto">
+          <div className="form-group center mx-auto">
             <label className="font-weight-bold">City Name:</label>
             <input
               className="form-control"

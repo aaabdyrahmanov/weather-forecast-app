@@ -24,7 +24,7 @@ const EditCity = props => {
   const onSubmit = event => {
     event.preventDefault()
     dispatch(updateXCity({ id: pathname, name: updateCity }))
-    alert(`City with id ${pathname} was succesfully updated`)
+    alert(`City with id ${pathname} succesfully updated`)
     history.push('/card/city')
   }
 
