@@ -1,9 +1,11 @@
-const express = require('express')
-const router = express.Router()
+const City = require('./city')
+const Report = require('./report')
+const Users = require('./users')
+const User = require('./user')
 
-router.get('/', (req, res) => {
-  console.log('A new request received at ' + Date())
-  res.send('Hello World')
-})
-
-module.exports = router
+module.exports = (app) => {
+  app.use('/api/v1/cities', City)
+  app.use('/api/v1/reports', Report)
+  app.use('/api/v1/users', User)
+  app.use('/api/v1/users', Users)
+}

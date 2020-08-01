@@ -32,6 +32,9 @@ mongoose
   .then(res => console.log('MongoDB Connected'))
   .catch(err => console.log(err))
 
+// import Routes
+require('../routes')(app)
+
 app.listen(port, () => console.log(`Listening on port ${port}`))
 
 module.exports = app
