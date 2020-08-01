@@ -1,4 +1,4 @@
-const ReportSchema = require('../models/reports.model')
+const ReportSchema = require('../models/reports')
 
 const NewReport = report => {
   return ReportSchema.create(report).then(data => {

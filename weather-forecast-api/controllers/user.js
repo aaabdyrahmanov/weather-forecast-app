@@ -1,4 +1,4 @@
-const UserSchema = require('../models/user.model')
+const UserSchema = require('../models/user')
 
 const NewUser = user => {
   return UserSchema.create(user)

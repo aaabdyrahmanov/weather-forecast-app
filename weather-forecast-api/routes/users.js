@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const UserRouter = require('../controllers/user.controller')
-const UserModel = require('../models/user.model')
+const UserRouter = require('../controllers/user')
+const UserModel = require('../models/user')
 
 router.get('/users', async (req, res) => {
   const users = await UserModel.find({})

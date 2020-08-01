@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const ReportRouter = require('../controllers/report.controller')
-const ReportsModel = require('../models/reports.model')
+const ReportRouter = require('../controllers/report')
+const ReportsModel = require('../models/reports')
 
 router.post('/reports/new', async (req, res) => {
   try {

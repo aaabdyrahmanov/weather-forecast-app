@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const CityRouter = require('../controllers/city.controller')
-const CityModel = require('../models/cities.model')
+const CityRouter = require('../controllers/city')
+const CityModel = require('../models/cities')
 
 router.get('/cities', async (req, res) => {
   const cities = await CityModel.find({})

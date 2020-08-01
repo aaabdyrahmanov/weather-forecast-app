@@ -5,10 +5,10 @@ const { json, urlencoded } = require('body-parser')
 const mongoose = require('mongoose')
 
 const indexRouter = require('../routes/index')
-const cityRouter = require('../routes/city.route')
-const reportRouter = require('../routes/report.route')
-const usersRouter = require('../routes/users.route')
-const userRouter = require('../routes/user.route')
+const cityRouter = require('../routes/city')
+const reportRouter = require('../routes/report')
+const usersRouter = require('../routes/users')
+const userRouter = require('../routes/user')
 
 const app = express()
 
