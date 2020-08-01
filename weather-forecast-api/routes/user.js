@@ -2,8 +2,7 @@ const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
 const User = require('../models/user')
-
-process.env.SECRET_KEY = 'secret'
+const { SECRET_KEY } = require('../config')
 
 router.post('/users/login', (req, res) => {
   User.findOne({
@@ -16,7 +15,7 @@ router.post('/users/login', (req, res) => {
             first_name: user.first_name,
             last_name: user.last_name
           }
-          let token = jwt.sign(payload, process.env.SECRET_KEY, {
+          let token = jwt.sign(payload, SECRET_KEY, {
             expiresIn: 1440
           })
           res.status(200).send(token)

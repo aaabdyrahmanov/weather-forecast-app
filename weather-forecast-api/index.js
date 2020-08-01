@@ -1,8 +1,9 @@
 const server = require('./server')
+const { HOST, PORT} = require('./config')
 
 require('./models')
 
-server.listen(3000, (err) => {
+server.listen(PORT, HOST, (err) => {
   if(err) console.error(err)
-  console.log(`REST API started on http://localhost:3000/api`)
+  console.log(`REST API started on http://${HOST}:${PORT}/api`)
 })
