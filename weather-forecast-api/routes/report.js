@@ -3,7 +3,7 @@ const router = express.Router()
 const ReportRouter = require('../controllers/report')
 const ReportsModel = require('../models/reports')
 
-router.post('/reports/new', async (req, res) => {
+router.post('/new', async (req, res) => {
   try {
     console.log(req.body)
     const x = new Date()
@@ -18,12 +18,12 @@ router.post('/reports/new', async (req, res) => {
   }
 })
 
-router.get('/reports', async (req, res) => {
+router.get('/', async (req, res) => {
   const reports = await ReportsModel.find({})
   res.status(200).json(reports)
 })
 
-router.delete('/reports', async (req, res) => {
+router.delete('/', async (req, res) => {
   try {
     const removed = ReportsModel.deleteMany(
       { result: req.body[0].result },

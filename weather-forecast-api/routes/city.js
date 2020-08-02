@@ -3,12 +3,12 @@ const router = express.Router()
 const CityRouter = require('../controllers/city')
 const CityModel = require('../models/cities')
 
-router.get('/cities', async (req, res) => {
+router.get('/', async (req, res) => {
   const cities = await CityModel.find({})
   res.status(200).json(cities)
 })
 
-router.post('/cities/new', async (req, res) => {
+router.post('/new', async (req, res) => {
   try {
     const newCity = await CityRouter(req.body)
     const saved = await newCity.save()
@@ -19,7 +19,7 @@ router.post('/cities/new', async (req, res) => {
   }
 })
 
-router.put('/cities/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const updated = await CityModel.findOneAndUpdate(
       {
@@ -37,7 +37,7 @@ router.put('/cities/:id', async (req, res) => {
   }
 })
 
-router.delete('/cities/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     console.log(req.params.id)
     const removed = await CityModel.findOneAndRemove({

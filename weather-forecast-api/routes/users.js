@@ -3,12 +3,12 @@ const router = express.Router()
 const UserRouter = require('../controllers/user')
 const UserModel = require('../models/user')
 
-router.get('/users', async (req, res) => {
+router.get('/', async (req, res) => {
   const users = await UserModel.find({})
   res.status(200).json(users)
 })
 
-router.post('/users/register', async (req, res) => {
+router.post('/register', async (req, res) => {
   try {
     const res = await UserModel.findOne({ email: req.body.email })
     if (!res) {
@@ -24,7 +24,7 @@ router.post('/users/register', async (req, res) => {
   }
 })
 
-router.put('/users/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const updated = await UserModel.findOneAndUpdate(
       {
@@ -42,7 +42,7 @@ router.put('/users/:id', async (req, res) => {
   }
 })
 
-router.delete('/users/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const removed = await UserModel.findOneAndRemove({
       email: req.params.id

@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 const { SECRET_KEY } = require('../config')
 
-router.post('/users/login', (req, res) => {
+router.post('/login', (req, res) => {
   User.findOne({
     email: req.body.email
   })
