@@ -1,53 +1,37 @@
 const express = require('express')
+const city = require('../controllers/city')
+
 const router = express.Router()
-const CityRouter = require('../controllers/city')
-const CityModel = require('../models/cities')
 
-router.get('/', async (req, res) => {
-  const cities = await CityModel.find({})
-  res.status(200).json(cities)
-})
 
-router.post('/new', async (req, res) => {
-  try {
-    const newCity = await CityRouter(req.body)
-    const saved = await newCity.save()
-    res.status(200).json(saved)
-  } catch (e) {
-    console.error(e)
-    res.status(400).end()
-  }
-})
 
-router.put('/:id', async (req, res) => {
-  try {
-    const updated = await CityModel.findOneAndUpdate(
-      {
-        id: req.params.id
-      },
-      req.body,
-      {
-        new: true
-      }
-    )
-    res.status(200).json(updated)
-  } catch (e) {
-    console.error(e)
-    res.status(400).end()
-  }
-})
+/**
+  GET /api/v1/city
+ */
 
-router.delete('/:id', async (req, res) => {
-  try {
-    console.log(req.params.id)
-    const removed = await CityModel.findOneAndRemove({
-      name: req.params.id
-    })
-    res.status(200).json(removed)
-  } catch (e) {
-    console.error(e)
-    res.status(400).end()
-  }
-})
+router.get('/', city.getAll)
+
+
+/**
+  POST /api/v1/city
+ */
+
+router.post('/', city.addOne)
+
+
+/**
+  PUT /api/v1/city/:id
+ */
+
+router.put('/:id', city.updateOne)
+
+
+/**
+  DELETE /api/v1/city/:id
+ */
+
+router.delete('/:id', city.removeOne)
+
+
 
 module.exports = router
