@@ -8,9 +8,6 @@
     "format": "prettier --write \"./src/**/** \"",
     "lint": " tslint ./src/**/**/** --fix"
   },
-  "engines": {
-    "node": "12.13.1"
-  },
   "author": "atamyratabdy",
   "license": "ISC",
   "devDependencies": {
