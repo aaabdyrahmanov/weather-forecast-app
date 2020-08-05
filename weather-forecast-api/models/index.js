@@ -1,7 +1,23 @@
 const mongoose = require('mongoose')
 const { MONGODB_URI } = require('../config')
 
-mongoose
-  .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(res => console.log('MongoDB Connected'))
-  .catch(err => console.log(err))
+// Setup MongoDB with mongoose
+const options = {
+  useFindAndModify: false,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  autoIndex: false,
+  useUnifiedTopology: true
+}
+
+
+function connectDB () {
+  try {
+    mongoose.connect(MONGODB_URI, options)
+    console.log('DB successfully connected')
+  } catch (error) {
+    console.error('DB authentication error : ' + error)
+  }
+}
+
+module.exports = connectDB
