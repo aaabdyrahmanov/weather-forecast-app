@@ -36,32 +36,34 @@ async function register (req, res) {
 }
 
 
-function login (req, res) {
-  UserModel.findOne({
+async function login (req, res) {
+  const user = await UserModel.findOne({
     email: req.body.email
   })
-    .then(user => {
-      if (user) {
-        if (req.body.password == user.password) {
-          const payload = {
-            first_name: user.first_name,
-            last_name: user.last_name
-          }
-          let token = jwt.sign(payload, SECRET_KEY, {
-            expiresIn: 1440
-          })
-          res.status(200).json(token)
-        } else {
-          res.status(401).send({ error: 'Password is not correct' })
-          res.end()
-        }
-      } else {
-        res.status(404).send({ error: 'User does not exist' })
-      }
+  try {
+
+    // activate early return functionality
+    if(!user) {
+      res.status(401).json({ error: 'Password is not correct' })
+    }
+
+    // activate early return functionality
+    if (req.body.password !== user.password) {
+      res.status(404).json({ error: 'User does not exist' })
+    }
+    const payload = {
+      first_name: user.first_name,
+      last_name: user.last_name
+    }
+    const token = jwt.sign(
+      payload, 
+      SECRET_KEY, { 
+      expiresIn: 1440 
     })
-    .catch((error) => {
-      res.status(400).send('Error: ' + error)
-    })
+    res.status(200).json(token)
+  } catch (error) {
+    res.status(400).send('Error: ' + error)    
+  }
 }
 
 
