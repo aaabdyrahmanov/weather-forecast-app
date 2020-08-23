@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 const UserSchema = new mongoose.Schema(
   {
@@ -29,3 +28,4 @@ const UserSchema = new mongoose.Schema(
 
 
 module.exports = mongoose.model('user', UserSchema)
+

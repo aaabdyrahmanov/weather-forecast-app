@@ -34,3 +34,4 @@ const ReportSchema = new mongoose.Schema(
 )
 
 module.exports = mongoose.model('reports', ReportSchema)
+
