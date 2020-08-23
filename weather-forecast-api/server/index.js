@@ -21,7 +21,7 @@ app.use(
         'X-XSRF-TOKEN'
       ]
     })
-  )
+)
 
 // request body parser middleware
 app.use(json())

@@ -10,7 +10,6 @@ const options = {
   useUnifiedTopology: true
 }
 
-
 function connectDB () {
   try {
     mongoose.connect(MONGODB_URI, options)

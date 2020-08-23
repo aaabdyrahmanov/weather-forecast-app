@@ -13,11 +13,9 @@ async function getAll (req, res) {
   }
 }
 
-
 async function register (req, res) {
   try {
     const res = await UserModel.findOne({ email: req.body.email })
-
     // activate early return functionality 
     if (!res) {
       const newUser = new UserModel({
@@ -35,18 +33,15 @@ async function register (req, res) {
   }
 }
 
-
 async function login (req, res) {
   const user = await UserModel.findOne({
     email: req.body.email
   })
   try {
-
     // activate early return functionality
     if(!user) {
       res.status(401).json({ error: 'Password is not correct' })
     }
-
     // activate early return functionality
     if (req.body.password !== user.password) {
       res.status(404).json({ error: 'User does not exist' })
@@ -66,7 +61,6 @@ async function login (req, res) {
   }
 }
 
-
 async function updateOne (req, res) {
   try {
     const updated = await UserModel.findOneAndUpdate(
@@ -84,7 +78,6 @@ async function updateOne (req, res) {
   }
 }
 
-
 async function removeOne (req, res) {
   try {
     const removed = await UserModel.findOneAndRemove({
@@ -95,7 +88,5 @@ async function removeOne (req, res) {
     res.status(400).send('Error: ' + error)
   }
 }
-
-
 
 module.exports = { getAll, register, login, updateOne, removeOne }

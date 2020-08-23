@@ -10,7 +10,6 @@ async function getAll (req, res) {
   }
 }
 
-
 function addOne (req, res) {
   try {
     const newReport = new ReportModel({
@@ -27,7 +26,6 @@ function addOne (req, res) {
   }
 }
 
-
 async function removeAll (req, res) {
   try {
     const removed = await ReportsModel.deleteMany({})
@@ -36,7 +34,5 @@ async function removeAll (req, res) {
     res.status(400).send('Error: ' + error)
   }
 }
-
-
 
 module.exports = { getAll, addOne, removeAll }

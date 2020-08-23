@@ -1,7 +1,6 @@
 const CityModel = require('../models/cities')
 
 
-
 async function getAll (req, res) {
   try {
     const cities = await CityModel.find({})
@@ -10,7 +9,6 @@ async function getAll (req, res) {
     res.status(400).send('Error: ' + error)
   }
 }
-
 
 function addOne (req, res) {
   try {
@@ -22,7 +20,6 @@ function addOne (req, res) {
     res.status(400).send('Error: ' + error)
   }
 }
-
 
 async function updateOne (req, res) {
   try {
@@ -41,7 +38,6 @@ async function updateOne (req, res) {
   }
 }
 
-
 async function removeOne (req, res) {
   try {
     const removed = await CityModel.findOneAndRemove({
@@ -52,7 +48,5 @@ async function removeOne (req, res) {
     res.status(400).send('Error: ' + error)
   }
 }
-
-
 
 module.exports = { getAll, addOne, updateOne, removeOne }
