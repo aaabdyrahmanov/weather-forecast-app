@@ -1,12 +1,16 @@
-var mongoose = require('mongoose')
-const AutoIncrement = require('mongoose-sequence')(mongoose)
+const mongoose = require('mongoose')
 
-const CitiesSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
+const CitiesSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true
+    }
+  },
+  {
+    timestamps: true
   }
-})
-CitiesSchema.plugin(AutoIncrement, { inc_field: 'id' })
+)
 
-module.exports = mongoose.model('city', CitiesSchema)
+module.exports =  mongoose.model('city', CitiesSchema)
+
