@@ -14,7 +14,7 @@ async function getAll (req, res) {
 
 function addOne (req, res) {
   try {
-    const newCity = new ReportModel({
+    const newCity = new CityModel({
       name: req.body.name
     })
     res.status(200).json(newCity)
