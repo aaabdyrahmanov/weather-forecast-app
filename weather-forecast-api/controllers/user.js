@@ -65,7 +65,7 @@ async function updateOne (req, res) {
   try {
     const updated = await UserModel.findOneAndUpdate(
       {
-        id: req.params.id
+        email: req.body.email
       },
       req.body,
       {
@@ -81,7 +81,7 @@ async function updateOne (req, res) {
 async function removeOne (req, res) {
   try {
     const removed = await UserModel.findOneAndRemove({
-      email: req.params.id
+      email: req.body.email
     })
     res.status(200).json(removed)
   } catch (error) {
