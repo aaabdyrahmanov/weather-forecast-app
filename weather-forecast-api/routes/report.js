@@ -5,21 +5,21 @@ const router = express.Router()
 
 
 /**
- * GET /api/v1/report
+ * GET /api/v1/report/:id
  */
-router.get('/', report.getAll)
+router.get('/:id', report.getAll)
 
 
 /**
- * POST /api/v1/report
+ * POST /api/v1/report/:id
  */
-router.post('/', report.addOne)
+router.post('/:id', report.addOne)
 
 
 /**
-  DELETE /api/v1/report
+  DELETE /api/v1/report/:id
  */
-router.delete('/', report.removeAll)
+router.delete('/:id', report.removeAll)
 
 
 

@@ -5,15 +5,15 @@ const router = express.Router()
 
 
 /**
-  GET /api/v1/city
+  GET /api/v1/city/:id
  */
-router.get('/', city.getAll)
+router.get('/:id', city.getAll)
 
 
 /**
-  POST /api/v1/city
+  POST /api/v1/city/:id
  */
-router.post('/', city.addOne)
+router.post('/:id', city.addOne)
 
 
 /**

@@ -23,15 +23,15 @@ router.post('/login', user.login)
 
 
 /**
-  PUT /api/v1/user/:id
+  PUT /api/v1/user
  */
-router.put('/:id', user.updateOne)
+router.put('/', user.updateOne)
 
 
 /**
-  DELETE /api/v1/user/:id
+  DELETE /api/v1/user
  */
-router.delete('/:id', user.removeOne)
+router.delete('/', user.removeOne)
 
 
 module.exports = router
