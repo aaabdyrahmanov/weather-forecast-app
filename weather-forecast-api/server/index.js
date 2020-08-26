@@ -1,9 +1,9 @@
 const express = require('express')
-const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
-const compression = require('compression')
 const { json, urlencoded } = require('body-parser')
+const morgan = require('morgan')
+const compression = require('compression')
 
 const app = express()
 
@@ -16,10 +16,7 @@ app.use(
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
       allowedHeaders: [
         'Accept',
-        'Content-Type',
-        'X-Requested-With',
-        'X-HTTP-Method-Override',
-        'X-XSRF-TOKEN'
+        'Content-Type'
       ]
     })
 )
