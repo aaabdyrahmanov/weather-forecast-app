@@ -1,6 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
+const helmet = require('helmet')
 const compression = require('compression')
 const { json, urlencoded } = require('body-parser')
 
@@ -22,6 +23,9 @@ app.use(
       ]
     })
 )
+
+// security middleware for Express
+app.use(helmet());
 
 // request body parser middleware
 app.use(json())
