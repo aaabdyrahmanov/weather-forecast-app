@@ -1,7 +1,7 @@
 const server = require('./server')
 const { HOST, PORT} = require('./config')
 
-require('./models')
+require('./models')()
 
 server.listen(PORT, HOST, (err) => {
   if(err) console.error(err)
