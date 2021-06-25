@@ -3,10 +3,8 @@ const { MONGODB_URI } = require('../config')
 
 // Setup MongoDB with mongoose
 const options = {
-  useFindAndModify: false,
   useNewUrlParser: true,
   useCreateIndex: true,
-  autoIndex: false,
   useUnifiedTopology: true
 }
 
